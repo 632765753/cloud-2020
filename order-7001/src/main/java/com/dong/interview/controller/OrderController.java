@@ -1,5 +1,6 @@
 package com.dong.interview.controller;
 
+import com.dong.interview.service.PaymentFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,12 @@ public class OrderController {
     @Autowired
     private RestTemplate restTemplate;
 
+    /**
+     * 使用声明式的feign接口调用服务
+     */
+    @Autowired
+    private PaymentFeign paymentFeign;
+
     @GetMapping("/order/getPayments")
     public List<Object> getPayments(){
         ResponseEntity<Object> forEntity = restTemplate.getForEntity(PAYMENT_URL + "/payment/getPayments", Object.class);
@@ -38,5 +45,11 @@ public class OrderController {
     public String getPaymentServerPort(){
         ResponseEntity<String> forEntity = restTemplate.getForEntity(PAYMENT_APPLICATION_NAME + "/payment/getServerPort", String.class);
         return  forEntity.getBody();
+    }
+
+    @GetMapping("/order/timeout")
+    public String timeout(){
+        String timeout = paymentFeign.timeout();
+        return timeout;
     }
 }

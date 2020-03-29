@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
@@ -13,6 +14,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 //指定ribbon调用支付服务的时候使用的负载均衡策略
 @RibbonClient(name="payment",configuration = MyRandomRule.class)
+
+@EnableFeignClients("com.dong.interview.service")
 public class OrderBootstrap {
 
     public static void main(String[] args) {

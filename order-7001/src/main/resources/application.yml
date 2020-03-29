@@ -13,6 +13,10 @@ payment:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
 
+#超时配置，只适用于feign这种调用，不适用restTemplate
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
 
 
 
