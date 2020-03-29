@@ -29,7 +29,6 @@ public class PaymentController {
         return paymentService.getPayments();
     }
 
-
     @GetMapping("/payment/getServerPort")
     public String getServerPort(){
         try {

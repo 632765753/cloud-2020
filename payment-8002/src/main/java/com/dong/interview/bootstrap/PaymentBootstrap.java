@@ -12,7 +12,8 @@ import org.springframework.context.annotation.ComponentScan;
  * @Date 2020/3/24
  */
 @SpringBootApplication
-@ComponentScan(value = {"com.dong.interview.controller","com.dong.interview.service"})
+@ComponentScan(value = {"com.dong.interview.controller",
+        "com.dong.interview.service"})
 @MapperScan("com.dong.interview.mapper")
 @EnableEurekaClient
 public class PaymentBootstrap {

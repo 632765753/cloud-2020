@@ -6,6 +6,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>payment-8001</module>
+        <module>order-7001</module>
+        <module>eureka-server-10001</module>
+        <module>payment-8002</module>
     </modules>
 
     <groupId>com.dong.interview</groupId>
